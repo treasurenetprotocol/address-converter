@@ -1,0 +1,39 @@
+{
+  "bundleDependencies": [],
+  "dependencies": {
+    "@treasurenet/address-converter": "^0.1.0",
+    "bech32": "^2.0.0",
+    "crypto-addr-codec": "^0.1.7",
+    "link-module-alias": "^1.2.0",
+    "shx": "^0.3.4"
+  },
+  "deprecated": false,
+  "description": "Address converter, convert ETH address to Ethermint/evmos/treasurenet address.",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "Chris Chiu",
+    "email": "chrischiu77@aliyun.com",
+    "url": "http://"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@treasurenet/address-converter",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json && link-module-alias",
+    "build:watch": "tsc --build -w tsconfig.build.json && link-module-alias",
+    "clean": "tsc --build tsconfig.build.json --clean  && shx rm -rf coverage *.log junit.xml dist && jest --clearCache",
+    "coverage": "jest --coverage",
+    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+    "postinstall": "shx mkdir -p dist && link-module-alias",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:ci": "jest --coverage --ci --reporters='jest-junit'",
+    "test:integration": "jest test/unit",
+    "test:unit": "jest test/unit",
+    "test:watch": "jest --watch"
+  },
+  "types": "dist/index.d.ts",
+  "version": "0.1.1"
+}
